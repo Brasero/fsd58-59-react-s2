@@ -1,15 +1,26 @@
 // path : revision/src/page/BlogDetail/index.page.jsx
 
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 
-const BlogDetailPage = () => {
+const BlogDetailPage = ({posts}) => {
+ 
+ const navigate = useNavigate();
  
  const {id} = useParams()
+ const post = posts.find((p) => p.id == id)
  
-
+ const goBack = () => {
+  navigate(-1)
+ }
+ 
+ 
  
  return <div className="page" id="BlogDetail">
-    <h2>Détail de l'article {id}</h2>
+  <button onClick={goBack}> {"<-"} </button>
+  <h3>{post.title}</h3>
+  <div>
+   <span>{post.description}</span> / <span>{post.content}</span>
+  </div>
  </div>
 }
 

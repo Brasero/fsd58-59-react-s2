@@ -3,7 +3,7 @@
 const AccueilPage = () => {
  
  return <div className="page" id="Accueil">
-  <h2>Accueil</h2>
+ 
  </div>
 }
 

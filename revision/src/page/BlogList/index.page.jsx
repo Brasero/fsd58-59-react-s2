@@ -1,12 +1,18 @@
 // path : revision/src/page/BlogList/index.page.jsx
 
-import {Link} from "react-router";
+import Lien from "../../component/Lien.jsx";
+import {Outlet} from "react-router";
 
-const BlogListPage = () => {
+const BlogListPage = ({posts}) => {
  
  return <div className="page" id="BlogList">
-  <h2>Articles de blog</h2>
-  <Link to={"/blog/25"}>Article 25</Link>
+  <ul style={{
+   display: "flex",
+   flexDirection: "column"
+  }}>
+   {posts.map(post => <Lien to={`blog/${post.id}`} label={post.title} />)}
+  </ul>
+  <Outlet />
  </div>
 }
 
