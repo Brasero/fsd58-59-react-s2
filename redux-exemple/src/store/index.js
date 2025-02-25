@@ -1,11 +1,10 @@
 import { legacy_createStore as createStore, combineReducers} from "redux"
-import countReducer from "./reducer/countReducer.js";
-import messageReducer from "./reducer/messageReducer.js";
+import dragonReducer from "./reducer/dragonReducer.js";
+
 
 const store = createStore(
  combineReducers({
-  counter: countReducer,
-  messages: messageReducer
+  dragons: dragonReducer
  }),
  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
