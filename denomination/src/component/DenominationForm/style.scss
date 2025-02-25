@@ -1,0 +1,9 @@
+.DenominationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+ input {
+   height: 32px;
+   text-align: center;
+ }
+}
