@@ -1,11 +1,13 @@
 // path : dice-game/src/page/Stats/index.page.jsx
 import "./style.scss";
-import {useNavigate, useOutletContext} from "react-router";
+import {useLocation, useNavigate, useOutletContext} from "react-router";
 
 const StatsPage = () => {
  
- const {state, reset} = useOutletContext()
+ const {reset} = useOutletContext()
  const navigate = useNavigate()
+ const {state} = useLocation()
+ 
  
  
  const handleReset = () => {

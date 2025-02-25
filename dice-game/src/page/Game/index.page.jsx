@@ -18,7 +18,7 @@ const GamePage = () => {
   </div>
   <div>
    {
-    state.hasResult && <Link to={"/stats"}>Statistiques</Link>
+    state.hasResult && <Link state={state} to={"/stats"}>Statistiques</Link>
    }
   </div>
  </div>
