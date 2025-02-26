@@ -1,0 +1,15 @@
+#Log {
+  width: 100%;
+  border: 1px solid #213547;
+  height: 150px;
+  overflow-x: auto;
+  border-radius: 15px;
+  position: relative;
+
+  button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.1);
+  }
+}

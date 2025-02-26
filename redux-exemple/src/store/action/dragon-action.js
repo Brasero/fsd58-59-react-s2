@@ -7,9 +7,10 @@ export const setDragonAction = (name) => {
  }
 }
 
-export const addDragonAction = () => {
+export const addDragonAction = (dragon = null) => {
  return {
-  type: ADD_DRAGON
+  type: ADD_DRAGON,
+  payload: dragon
  }
 }
 

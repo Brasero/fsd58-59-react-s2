@@ -7,6 +7,17 @@ const initialState = {
  dragon: "",
  count: 0
 }
+const addDragonFromStateOrPayload = (payload, state) => {
+ console.log()
+ if (!payload) {
+  return state.dragons.concat([{
+   name: state.dragon.trim(),
+   id: id++
+  }])
+ }
+ return state.dragons.concat([payload])
+}
+
 const dragonReducer = (state=initialState, action) => {
  
  switch(action.type) {
@@ -20,7 +31,7 @@ const dragonReducer = (state=initialState, action) => {
   case ADD_DRAGON:
    return {
     ...state,
-    dragons: state.dragons.concat([{name: state.dragon.trim(), id: id++}]),
+    dragons: addDragonFromStateOrPayload(action.payload ?? null, state),
     dragon: "",
     count: state.count+1
    }

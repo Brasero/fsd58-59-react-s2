@@ -1,0 +1,1 @@
+export const selectLog = (state) => state.logs.logsArray;

@@ -2,6 +2,7 @@
 import "./style.scss";
 import {useDispatch} from "react-redux";
 import {deleteDragonAction} from "../../store/action/dragon-action.js";
+import {addLogAction} from "../../store/action/log-action.js";
 
 const DragonItem = ({dragon}) => {
  
@@ -9,6 +10,10 @@ const DragonItem = ({dragon}) => {
  
  const onDelete = () => {
   dispatch(deleteDragonAction(dragon.id))
+  dispatch(addLogAction({
+   action: "Dragon supprimée",
+   name: dragon.name
+  }))
  }
  
  return (

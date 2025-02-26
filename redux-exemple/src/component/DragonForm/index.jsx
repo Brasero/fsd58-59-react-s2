@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {selectDragon, selectDragons} from "../../store/selector/dragon-selector.js";
 import {addDragonAction, setDragonAction, sortDragonAction} from "../../store/action/dragon-action.js";
 import {useState} from "react";
+import {addLogAction} from "../../store/action/log-action.js";
 
 const DragonForm = () => {
  
@@ -30,6 +31,10 @@ const DragonForm = () => {
   }
   setError("")
   dispatch(addDragonAction())
+  dispatch(addLogAction({
+   action: "Dragon ajouté",
+   name: dragon.trim()
+  }))
  }
  
  const onReverse = () => {
