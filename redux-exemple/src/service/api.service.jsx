@@ -14,9 +14,14 @@ const useApi = () => {
 		return await api.put(`/todos/${todo.id}`, todo)
 	}
 	
+	const addTodo = async (todo) => {
+		return await api.post("/todos", todo)
+	}
+	
 	return {
 		fetchTodos,
-		updateTodo
+		updateTodo,
+		addTodo
 	}
 }
 

@@ -2,6 +2,7 @@
 import "./style.scss";
 import {useDispatch} from "react-redux";
 import {updateTodo} from "../../store/slice/todoSlice.jsx";
+import {Link} from "react-router";
 
 const TodoItem = ({todo}) => {
 	
@@ -16,11 +17,14 @@ const TodoItem = ({todo}) => {
 	
 	return (
 		<div className="TodoItem">
-		  <h4>{todo.title}</h4>
-    <p>
-        <input type={"checkbox"} onChange={handleCompleted} checked={todo.completed} />
-        <span>Complété</span>
-    </p>
+			<Link to={`/update/${todo.id}`} className={todo.completed ? "link complete" : "link"}>
+				<h4>{todo.title}</h4>
+			</Link>
+			<p>
+				<span className={`checkbox ${todo.completed && "checked"}`}>
+          <input type={"checkbox"} onChange={handleCompleted} checked={todo.completed}/>
+        </span>
+			</p>
 		</div>
 	)
 }

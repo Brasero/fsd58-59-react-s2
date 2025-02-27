@@ -17,9 +17,28 @@ export const updateTodo = createAsyncThunk(
 	}
 )
 
+export const addTodo = createAsyncThunk(
+	"todo/addTodo",
+	async (todo) => {
+		return (await api.addTodo(todo)).data
+	}
+)
+
+export const resetError = createAsyncThunk(
+	"todo/resetError",
+	async (time = 3500) => {
+		return await new Promise((resolve) => {
+			setTimeout(() => {
+				resolve("")
+			}, time)
+		})
+	}
+)
+
 const initialState = {
     todos: [],
-		isLoading: false
+		isLoading: false,
+		error: ""
 }
 
 const todoSlice = createSlice({
@@ -38,6 +57,7 @@ const todoSlice = createSlice({
 			})
 			.addCase(fetchTodo.rejected, (state, action) => {
 				state.isLoading = false
+				state.error = "Une erreur est survenue"
 			})
 		
 		builder.addCase(updateTodo.fulfilled, (state,action)=> {
@@ -47,7 +67,35 @@ const todoSlice = createSlice({
 				}
 				return todo
 			})
+			state.isLoading = false
 		})
+		 .addCase(updateTodo.pending,(state) => {
+			 state.isLoading = true
+		 })
+		 .addCase(updateTodo.rejected, (state) => {
+			 state.isLoading = false
+			 state.error = "Une erreur est survenue"
+		 })
+		
+		builder.addCase(addTodo.fulfilled, (state,action) => {
+			state.isLoading = false
+			state.todos.push({
+				...action.payload,
+				id: state.todos.length + 1,
+			})
+		})
+		 .addCase(addTodo.pending, (state) => {
+			 state.isLoading = true
+		 })
+		 .addCase(addTodo.rejected, (state) => {
+			 state.isLoading = false
+			 state.error = "Une erreur est survenue"
+		 })
+		
+		builder
+		 .addCase(resetError.fulfilled, (state,action) => {
+			 state.error = action.payload;
+		 })
 	}
 })
 
