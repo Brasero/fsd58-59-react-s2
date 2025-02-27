@@ -1,1 +1,0 @@
-export const selectLog = (state) => state.logs.log;

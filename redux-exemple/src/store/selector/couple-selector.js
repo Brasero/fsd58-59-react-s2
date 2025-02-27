@@ -1,1 +1,0 @@
-export const selectCouples = (state) => state.couple.couple;

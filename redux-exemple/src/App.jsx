@@ -1,8 +1,5 @@
 import './App.css'
-import DragonPage from "./page/Dragon/index.page.jsx";
-import LogPage from "./page/Log/index.page.jsx";
-import KnightPage from "./page/Knight/index.page.jsx";
-import CouplePage from "./page/Couple/index.page.jsx";
+import HomePage from "./page/Home/index.page.jsx";
 
 function App() {
  
@@ -10,10 +7,7 @@ function App() {
  
   return (
     <div className={"app"}>
-     <LogPage />
-     <DragonPage />
-     <KnightPage />
-     <CouplePage />
+      <HomePage />
     </div>
   )
 }

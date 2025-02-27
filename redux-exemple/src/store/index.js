@@ -1,18 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
-import dragonSlice from "./slice/dragonSlice.js";
-import knightSlice from "./slice/knightSlice.jsx";
-import coupleSlice from "./slice/coupleSlice.jsx";
-import logSlice from "./slice/logSlice.js";
-import {logMiddleware} from "./middleware/logMiddleware.js";
+import todoSlice from "./slice/todoSlice.jsx";
 
 const store = configureStore({
 	reducer: {
-		dragons: dragonSlice,
-		knights: knightSlice,
-		couple: coupleSlice,
-		logs: logSlice
+		todos: todoSlice
 	},
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logMiddleware])
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware().concat([])
 })
 
 export default store
