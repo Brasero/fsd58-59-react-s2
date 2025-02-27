@@ -2,9 +2,9 @@
 import "./style.scss";
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addKnightAction, reverseKnight, setKnightAction} from "../../store/action/knight-action.js";
 import {selectKnight, selectKnights} from "../../store/selector/knight-selector.js";
 import {addLogAction} from "../../store/action/log-action.js";
+import {addKnight, setKnight, reverseKnight} from "../../store/slice/knightSlice.jsx";
 
 const KnightForm = () => {
  
@@ -14,7 +14,7 @@ const KnightForm = () => {
  const knights = useSelector(selectKnights)
  const handleChange = (e) => {
   const {value} = e.target
-  dispatch(setKnightAction(value))
+  dispatch(setKnight(value))
  }
  
  const handleSubmit = (e) => {
@@ -30,7 +30,7 @@ const KnightForm = () => {
    return
   }
   error && setError("")
-  dispatch(addKnightAction())
+  dispatch(addKnight(knight))
  }
  
  const handleReverse = () => {

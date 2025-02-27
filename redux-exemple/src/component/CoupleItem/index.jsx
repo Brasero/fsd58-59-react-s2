@@ -1,9 +1,9 @@
 // path: redux-exemple/src/component/CoupleItem/index.jsx
 import "./style.scss";
 import {useDispatch} from "react-redux";
-import {removeCouple} from "../../store/action/couple-action.js";
-import {addKnightAction} from "../../store/action/knight-action.js";
-import {addDragonAction} from "../../store/action/dragon-action.js";
+import {removeCouple} from "../../store/slice/coupleSlice.jsx";
+import {addKnight} from "../../store/slice/knightSlice.jsx";
+import {addDragon} from "../../store/slice/dragonSlice.js";
 
 const CoupleItem = ({couple}) => {
 	
@@ -11,8 +11,8 @@ const CoupleItem = ({couple}) => {
 	
 	const handleDelete = () => {
 		dispatch(removeCouple(couple.id))
-		dispatch(addKnightAction(couple.knight))
-		dispatch(addDragonAction(couple.dragon))
+		dispatch(addKnight(couple.knight.name))
+		dispatch(addDragon(couple.dragon.name))
 	}
 	
 	return (

@@ -5,9 +5,9 @@ import {selectKnights} from "../../store/selector/knight-selector.js";
 import {selectDragons} from "../../store/selector/dragon-selector.js";
 import Select from "../Select/index.jsx";
 import {useState} from "react";
-import {addCouple} from "../../store/action/couple-action.js";
-import {deleteKnight} from "../../store/action/knight-action.js";
-import {deleteDragonAction} from "../../store/action/dragon-action.js";
+import {addCouple} from "../../store/slice/coupleSlice.jsx";
+import {deleteKnight} from "../../store/slice/knightSlice.jsx";
+import {deleteDragon} from "../../store/slice/dragonSlice.js";
 
 const CoupleForm = () => {
 	
@@ -38,7 +38,7 @@ const CoupleForm = () => {
 			knight: ""
 		})
 		dispatch(deleteKnight(JSON.parse(selectedCouple.knight).id))
-		dispatch(deleteDragonAction(JSON.parse(selectedCouple.dragon).id))
+		dispatch(deleteDragon(JSON.parse(selectedCouple.dragon).id))
 	}
  
 	return (

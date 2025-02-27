@@ -1,7 +1,7 @@
 // path: redux-exemple/src/component/KnightItem/index.jsx
 import "./style.scss";
 import {useDispatch} from "react-redux";
-import {deleteKnight} from "../../store/action/knight-action.js";
+import {deleteKnight} from "../../store/slice/knightSlice.jsx";
 
 const KnightItem = ({knight}) => {
 	const dispatch = useDispatch()

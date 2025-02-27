@@ -3,13 +3,14 @@ import "./style.scss";
 import {useDispatch} from "react-redux";
 import {deleteDragonAction} from "../../store/action/dragon-action.js";
 import {addLogAction} from "../../store/action/log-action.js";
+import {deleteDragon} from "../../store/slice/dragonSlice.js";
 
 const DragonItem = ({dragon}) => {
  
  const dispatch = useDispatch()
  
  const onDelete = () => {
-  dispatch(deleteDragonAction(dragon.id))
+  dispatch(deleteDragon(dragon.id))
  }
  
  return (

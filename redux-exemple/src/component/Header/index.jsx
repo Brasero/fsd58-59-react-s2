@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 const Header = ({label, selector}) => {
  
- const count = useSelector(selector)
+ const count = 0
  
  return (
   <header className="Header">

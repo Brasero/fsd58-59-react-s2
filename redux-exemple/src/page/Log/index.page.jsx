@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectLog} from "../../store/selector/log-selector.js";
 import LogItem from "../../component/LogItem/index.jsx";
 import {resetLogAction} from "../../store/action/log-action.js";
+import {resetLog} from "../../store/slice/logSlice.js";
 
 const LogPage = () => {
 	
@@ -11,7 +12,7 @@ const LogPage = () => {
 	const dispatch = useDispatch()
 	
 	const handleReset = () => {
-		dispatch(resetLogAction())
+		dispatch(resetLog())
 	}
 	
 	return <div className="page" id="Log">

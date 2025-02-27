@@ -2,20 +2,21 @@
 import "./style.scss";
 import {useSelector, useDispatch} from "react-redux"
 import {selectDragon, selectDragons} from "../../store/selector/dragon-selector.js";
-import {addDragonAction, setDragonAction, sortDragonAction} from "../../store/action/dragon-action.js";
+import {addDragonAction, sortDragonAction} from "../../store/action/dragon-action.js";
 import {useState} from "react";
 import {addLogAction} from "../../store/action/log-action.js";
+import {addDragon, reverseDragon, setDragon} from "../../store/slice/dragonSlice.js";
 
 const DragonForm = () => {
  
- const dragon = useSelector(selectDragon);
- const dragons = useSelector(selectDragons);
+ const dragon = useSelector(selectDragon)
+ const dragons = useSelector(selectDragons)
  const dispatch = useDispatch()
  const [error, setError] = useState("")
  
  const handleChange = (e) => {
   const {value} = e.target
-  dispatch(setDragonAction(value))
+  dispatch(setDragon(value))
  }
  
  const handleSubmit = (e) => {
@@ -30,11 +31,11 @@ const DragonForm = () => {
    return
   }
   setError("")
-  dispatch(addDragonAction())
+  dispatch(addDragon(dragon))
  }
  
  const onReverse = () => {
-  dispatch(sortDragonAction())
+  dispatch(reverseDragon())
  }
  
  return (
