@@ -10,10 +10,6 @@ const DragonItem = ({dragon}) => {
  
  const onDelete = () => {
   dispatch(deleteDragonAction(dragon.id))
-  dispatch(addLogAction({
-   action: "Dragon supprimée",
-   name: dragon.name
-  }))
  }
  
  return (

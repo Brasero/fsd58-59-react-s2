@@ -31,10 +31,6 @@ const KnightForm = () => {
   }
   error && setError("")
   dispatch(addKnightAction())
-  dispatch(addLogAction({
-   action: "Chevalier ajoutée",
-   name: knight
-  }))
  }
  
  const handleReverse = () => {

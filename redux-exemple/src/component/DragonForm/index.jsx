@@ -31,10 +31,6 @@ const DragonForm = () => {
   }
   setError("")
   dispatch(addDragonAction())
-  dispatch(addLogAction({
-   action: "Dragon ajouté",
-   name: dragon.trim()
-  }))
  }
  
  const onReverse = () => {
